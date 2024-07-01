@@ -38,7 +38,7 @@ UPDATE USER SET name = 'USER-01' WHERE id = 1;
 ```sql
 START TRANSACTION;
 ```
-6. 두번째 transaction에서 ITEM 테이블 데이터 생성
+6. 두번째 transaction에서 USER_ITEM 테이블 데이터 생성
 ```sql
 INSERT INTO USER_ITEM (id, user_id, name, price) VALUES (1, 1, 'User Item1', 1000);
 ```
