@@ -55,7 +55,7 @@ UPDATE PRODUCT SET name = 'trx test' WHERE id = 1;
 ```sql
 COMMIT;
 ```
-9. 두번째 transaction 에서 commit
+10. 두번째 transaction 에서 commit
 ```sql
 COMMIT;
 ```
