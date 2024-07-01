@@ -4,7 +4,7 @@
 외래키 잠금 전파로 데드락을 발생 시킨다.
 
 - **시나리오**
-1. Table 2개 생성 (회원, 회원 아이탬)
+1. Table 2개 생성 (회원, 회원 아이템)
 ```sql
 CREATE TABLE USER (
     id BIGINT PRIMARY KEY,
@@ -20,13 +20,10 @@ CREATE TABLE USER_ITEM (
 );
 ```
 
-2. 각 테이블에 데이터 저장
+2. USER 테이블에 데이터 저장
 ```sql
--- USER 테이블에 값 삽입
+-- USER 테이블에 데이터 삽입
 INSERT INTO USER (id, name) VALUES (1, 'User1');
-
--- USER_ITEM 테이블에 값 삽입
-INSERT INTO USER_ITEM (id, user_id, name, price) VALUES (1, 1, 'User Item1', 1000);
 ```
 
 3. 첫번째 transaction 생성
@@ -66,6 +63,7 @@ COMMIT;
 
 - 4번에서 첫번째 트랜잭션이 USER 테이블 id = 1 레코드의 X-lock 을 보유하고 있음
 - 6번에서 두번째 트랜잭션이 USER_ITEM 테이블 id = 1 레코드의 X-lock 을 보유하고 있음
-- 6번에서 두번째 트랜잭션이 외래키 설정으로 인하여 USER 테이블 id = 1 레코드의 S-lock 을 보유하기 위해 첫번째 트랜잭션이 끝나기를 기다리고 있음
-- 7번에서 첫번째 트랜잭션이 USER_ITEM 테이블 id = 1 레코드의 X-lock 을 보유하려고 하는 순간 데드락 발생
+- 6번에서 두번째 트랜잭션이 외래키 설정으로 인하여 USER 테이블 id = 1 레코드의 S-lock 을 보유해야 하기에 첫번째 트랜잭션이 끝나기를 기다리고 있음
+- 7번에서 첫번째 트랜잭션이 USER_ITEM 테이블 id = 1 레코드의 X-lock 을 보유해야 하기에 두번째 트랜잭션이 끝나기를 기다리고 있음
+- 데드락 발생
 - 첫번째 트랜잭션 롤백
