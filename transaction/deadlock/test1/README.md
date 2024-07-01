@@ -5,7 +5,7 @@
 
 - **시나리오**
 1. Table 2개 생성 (상품, 아이탬)
-```shell
+```sql
 CREATE TABLE PRODUCT (
     id BIGINT PRIMARY KEY,
     name VARCHAR(100)
