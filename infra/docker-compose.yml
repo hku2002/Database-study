@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+
+  mysql:
+    image: mysql
+    container_name: mysql
+    hostname: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=1234
+    restart: always
+    networks:
+      - mysql-net
+    volumes:
+      - /Users/hwang/DataRepo/mysql:/var/lib/mysql
+
+networks:
+  mysql-net:
+    name: mysql-net
