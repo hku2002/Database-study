@@ -58,4 +58,4 @@ COMMIT;
 - 6번 업데이트 쿼리 실행 시 대기 발생
 - 7번 commit 후 6번 쿼리 정상 실행
 
-write 작업중인 레코드는 shared lock 도 조회하지 못한다.
+Shared lock 레코드는 write 하지 못한다.
