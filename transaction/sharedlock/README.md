@@ -51,3 +51,7 @@ COMMIT;
 ```sql
 COMMIT;
 ```
+
+## 결과
+
+첫번째, 두번째 transaction 에서 모두 올바르게 read 됨
