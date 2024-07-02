@@ -1,6 +1,5 @@
 # Shared lock (공유잠금 / S Lock)
 
-- Shared lock 은 Read 시 사용하는 lock
 - Shared lock 끼리는 동시 접근이 가능
 
 ## Test 1

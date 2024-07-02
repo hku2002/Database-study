@@ -1,6 +1,5 @@
 # Shared lock (공유잠금 / S Lock)
 
-- Shared lock 은 Read 시 사용하는 lock
 - Shared lock 이 걸려있을 경우 Write 작업 불가능
 
 ## Test 3
