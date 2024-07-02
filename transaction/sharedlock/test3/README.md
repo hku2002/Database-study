@@ -3,7 +3,7 @@
 - Shared lock 은 Read 시 사용하는 lock
 - Shared lock 이 걸려있을 경우 Write 작업 불가능
 
-## Test 1
+## Test 3
 한 세션에서 Shared lock 으로 조회 발생 후 
 다른 세션에서 write 를 진행한다.
 
