@@ -1,0 +1,9 @@
+
+--3
+START TRANSACTION;
+
+--4
+UPDATE STOCK SET quantity = 101 WHERE id = 1;
+
+--6
+COMMIT;
