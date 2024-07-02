@@ -2,7 +2,7 @@
 
 - 다른 트랙잭션에서의 Exclusive Lock 은 허용하지 않는다.
 
-## Test 1
+## Test 2
 한 세션에서 Exclusive Lock 을 생성 후
 다른 세션에서 Exclusive Lock Read 를 진행한다.
 
