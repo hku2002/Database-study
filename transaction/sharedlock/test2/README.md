@@ -1,12 +1,11 @@
 # Shared lock (공유잠금 / S Lock)
 
 - Shared lock 은 Read 시 사용하는 lock
-- Shared lock 끼리는 동시 접근이 가능
-- Write 작업 시 접근 동시 접근 불가능
+- Write 작업 시 다른 세션 Shared lock 조회 불가능
 
 ## Test 1
-Shared lock 에서 다른 세션간 같은 레코드에 접근한다.
-각 세션간 write 를 진행한다.
+한 세션에서 write 를 진행한 후
+다른 세션에서 Shared lock 조회를 진행한다.
 
 - **시나리오**
 1. 재고 Table 1개 생성
