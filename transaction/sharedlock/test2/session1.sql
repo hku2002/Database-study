@@ -1,0 +1,9 @@
+
+--1
+START TRANSACTION;
+
+--2
+UPDATE STOCK SET name = 'STOCK-01' WHERE id = 1;
+
+--5
+COMMIT;
