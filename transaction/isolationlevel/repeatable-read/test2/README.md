@@ -5,7 +5,7 @@
 ## REPEATABLE READ
 
 변경 전의 레코드를 언두 공간에 백업 하여 언두 레코드 조회
-INSERT 시에도 MVCC 로 추가된 레코드를 읽지 않음
+INSERT 시에도 MVCC 로 추가된 레코드를 읽지 않음 (팬텀 Read 가 발생하지 않음)
 
 ## Test2
 1. 책 Table 1개 생성
