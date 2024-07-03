@@ -1,6 +1,6 @@
 # Isolation Level
 
-트랜젝션 격리 레벨
+트랜잭션 격리 레벨
 
 ## READ UNCOMMITED
 
