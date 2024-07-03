@@ -51,7 +51,7 @@ START TRANSACTION;
 SELECT * FROM BOOK WHERE id = 1;
 ```
 
-9. 첫번째 transaction rollback
+9. 첫번째 transaction commit
 ```sql
 COMMIT;
 ```
