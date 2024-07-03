@@ -21,7 +21,7 @@ CREATE TABLE BOOK (
 INSERT INTO BOOK (id, name) VALUES (1, 'Book1');
 ```
 
-3. 첫번째 세션에 격리 레벨 Read uncommit 설정
+3. 첫번째 세션에 격리 레벨 Repeatable read 설정
 ```sql
 SET SESSION TRANSACTION ISOLATION LEVEL REPEATABLE READ;
 ```
@@ -36,7 +36,7 @@ START TRANSACTION;
 UPDATE BOOK SET name = 'BOOK-01' WHERE id = 1;
 ```
 
-6. 두번째 세션에 격리 레벨 Read uncommit 설정
+6. 두번째 세션에 격리 레벨 Repeatable read 설정
 ```sql
 SET SESSION TRANSACTION ISOLATION LEVEL REPEATABLE READ;
 ```
