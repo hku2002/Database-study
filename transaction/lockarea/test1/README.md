@@ -3,7 +3,7 @@
 - Where 조건에 따른 lock 범위를 알아본다.
 
 ## Test 1
-Where 조건 2개로 lock 의 범위를 알아본다.
+Where 조건 2개로 lock 의 범위를 알아본다. 조건 중 1개는 pk 이다.
 
 - **시나리오**
 1. 버튼 Table 1개 생성
