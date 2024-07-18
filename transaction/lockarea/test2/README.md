@@ -2,7 +2,7 @@
 
 - Where 조건에 따른 lock 범위를 알아본다.
 
-## Test 1
+## Test 2
 Where 조건 1개로 lock 의 범위를 알아본다.
 
 - **시나리오**
