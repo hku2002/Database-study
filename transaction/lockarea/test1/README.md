@@ -17,7 +17,7 @@ CREATE TABLE BUTTON (
 
 2. 테이블에 데이터 저장
 ```sql
--- STOCK 테이블에 데이터 삽입
+-- BUTTON 테이블에 데이터 삽입
 INSERT INTO BUTTON (id, name, activated) VALUES (1, 'Button1', 0);
 INSERT INTO BUTTON (id, name, activated) VALUES (2, 'Button2', 0);
 INSERT INTO BUTTON (id, name, activated) VALUES (3, 'Button3', 0);
