@@ -2,7 +2,7 @@
 
 - Where 조건에 따른 lock 범위를 알아본다.
 
-## Test 3
+## Test 5
 Where 조건 2개로 lock 의 범위를 알아본다. 조건 1개에 index 가 존재한다.
 
 - **시나리오**
