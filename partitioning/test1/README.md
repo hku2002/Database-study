@@ -69,3 +69,14 @@ WHERE TABLE_NAME = 'LOG';
 | P_maxvalue     |     1      |
 -------------------------------
 ```
+
+### 기타
+- TABLE_ROWS 는 최적화를 위한 추정값이기 때문에 데이터가 정확하지 않을 수 있다.
+- mysql 공식 문서 내용
+```text
+TABLE_ROWS
+
+The number of table rows in the partition.
+For partitioned InnoDB tables, the row count given in the TABLE_ROWS column is only an estimated value used in SQL optimization, and may not always be exact.
+For NDB tables, you can also obtain this information using the ndb_desc utility.
+```
