@@ -12,7 +12,7 @@ services:
       - MYSQL_ROOT_PASSWORD=1234
     restart: always
     networks:
-      - mysql-net
+      - docker-net
     volumes:
       - /Users/hwang/DataRepo/mysql-replication/master/data:/var/lib/mysql
       - /Users/hwang/DataRepo/mysql-replication/master/config:/etc/mysql/conf.d
@@ -27,11 +27,31 @@ services:
       - MYSQL_ROOT_PASSWORD=1234
     restart: always
     networks:
-      - mysql-net
+      - docker-net
     volumes:
       - /Users/hwang/DataRepo/mysql-replication/replica-01/data:/var/lib/mysql
       - /Users/hwang/DataRepo/mysql-replication/replica-01/config:/etc/mysql/conf.d
 
+  grafana:
+    image: grafana/grafana:10.3.7
+    container_name: grafana
+    hostname: grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_INSTALL_PLUGINS=grafana-clock-panel
+    restart: unless-stopped
+    networks:
+      - docker-net
+    volumes:
+      - /Users/hwang/DataRepo/grafana/files/grafana.ini:/etc/grafana/grafana.ini
+      - /Users/hwang/DataRepo/grafana/data:/var/lib/grafana
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "8m"
+        max-file: "10"
+
 networks:
-  mysql-net:
-    name: mysql-net
+  docker-net:
+    name: docker-net
