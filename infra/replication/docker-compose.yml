@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+
+  mysql-master:
+    image: mysql
+    container_name: mysql-master
+    hostname: mysql-master
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=1234
+    restart: always
+    networks:
+      - mysql-net
+    volumes:
+      - /Users/hwang/DataRepo/mysql-replication/master/data:/var/lib/mysql
+      - /Users/hwang/DataRepo/mysql-replication/master/config:/etc/mysql/conf.d
+
+  mysql-replica-01:
+    image: mysql
+    container_name: mysql-replica-01
+    hostname: mysql-slave-01
+    ports:
+      - "3307:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=1234
+    restart: always
+    networks:
+      - mysql-net
+    volumes:
+      - /Users/hwang/DataRepo/mysql-replication/replica-01/data:/var/lib/mysql
+      - /Users/hwang/DataRepo/mysql-replication/replica-01/config:/etc/mysql/conf.d
+
+networks:
+  mysql-net:
+    name: mysql-net
