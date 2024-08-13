@@ -25,7 +25,7 @@ services:
   mysql-replica-01:
     image: mysql
     container_name: mysql-replica-01
-    hostname: mysql-slave-01
+    hostname: mysql-replica-01
     ports:
       - "3307:3306"
     environment:
@@ -41,6 +41,49 @@ services:
         limits:
           cpus: '2.00'
           memory: 2048M
+
+  mysql-master-exporter:
+    image: prom/mysqld-exporter
+    container_name: mysql-master-exporter
+    hostname: mysql-master-exporter
+    environment:
+      DATA_SOURCE_NAME: root:1234@tcp(mysql-master:3306)/
+    restart: unless-stopped
+    command:
+      - "--mysqld.username=root:1234"
+      - "--mysqld.address=mysql-master:3306"
+    ports:
+      - "9104:9104"
+    networks:
+      - docker-net
+    depends_on:
+      - mysql-master
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 128M
+
+  mysql-replica-01-exporter:
+    image: prom/mysqld-exporter
+    container_name: mysql-replica-01-exporter
+    hostname: mysql-replica-01-exporter
+    environment:
+      DATA_SOURCE_NAME: root:1234@tcp(mysql-replica-01:3306)/
+    command:
+      - "--mysqld.username=root:1234"
+      - "--mysqld.address=mysql-replica-01:3306"
+    ports:
+      - "9105:9104"
+    networks:
+      - docker-net
+    depends_on:
+      - mysql-replica-01
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 128M
 
   grafana:
     image: grafana/grafana:10.3.7
