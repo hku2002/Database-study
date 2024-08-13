@@ -16,6 +16,11 @@ services:
     volumes:
       - /Users/hwang/DataRepo/mysql-replication/master/data:/var/lib/mysql
       - /Users/hwang/DataRepo/mysql-replication/master/config:/etc/mysql/conf.d
+    deploy:
+      resources:
+        limits:
+          cpus: '2.00'
+          memory: 2048M
 
   mysql-replica-01:
     image: mysql
@@ -31,6 +36,11 @@ services:
     volumes:
       - /Users/hwang/DataRepo/mysql-replication/replica-01/data:/var/lib/mysql
       - /Users/hwang/DataRepo/mysql-replication/replica-01/config:/etc/mysql/conf.d
+    deploy:
+      resources:
+        limits:
+          cpus: '2.00'
+          memory: 2048M
 
   grafana:
     image: grafana/grafana:10.3.7
@@ -51,6 +61,11 @@ services:
       options:
         max-size: "8m"
         max-file: "10"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 256M
 
   prometheus:
     image: prom/prometheus
@@ -65,6 +80,11 @@ services:
       - /Users/hwang/DataRepo/prometheus/:/etc/prometheus/
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 128M
 
 networks:
   docker-net:
