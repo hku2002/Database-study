@@ -7,5 +7,6 @@ sysbench ./product_insert.lua \
   --mysql-password=1234 \
   --mysql-db=study \
   --threads=1 \
-  --events=100000 \
-  run
+  --events=1000 \
+  --time=0 \
+run
